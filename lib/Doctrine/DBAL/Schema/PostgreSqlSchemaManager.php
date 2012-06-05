@@ -212,7 +212,7 @@ class PostgreSqlSchemaManager extends AbstractSchemaManager
                             'column_name' => trim($colRow['attname']),
                             'non_unique' => !$row['indisunique'],
                             'primary' => $row['indisprimary'],
-                            'accessMethod' => $row[ 'am_name' ],
+                            'accessMethod' => $row[ 'amname' ],
                         );
                     }
                 }
