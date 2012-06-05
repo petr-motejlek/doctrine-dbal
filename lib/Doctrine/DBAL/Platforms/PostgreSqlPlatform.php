@@ -281,7 +281,7 @@ class PostgreSqlPlatform extends AbstractPlatform
                 ) AND
                 pg_index.indexrelid = pg_class.oid AND
                 pg_index.indclass = ARRAY[ pg_opclass.oid ]::oidvector AND
-                pg_opclass.opcmethod = pg_am.id";
+                pg_opclass.opcmethod = pg_am.oid";
     }
 
     /**
