@@ -264,7 +264,7 @@ class PostgreSqlPlatform extends AbstractPlatform
                 pg_am
 
             WHERE
-                oid IN (
+                pg_class.oid IN (
                     SELECT
                         indexrelid
 
@@ -279,7 +279,7 @@ class PostgreSqlPlatform extends AbstractPlatform
                         sc.relnamespace = sn.oid
 
                 ) AND
-                pg_index.indexrelid = oid AND
+                pg_index.indexrelid = pg_class.oid AND
                 pg_index.indclass = ARRAY[ pg_opclass.oid ]::oidvector AND
                 pg_opclass.opcmethod = pg_am.id";
     }
