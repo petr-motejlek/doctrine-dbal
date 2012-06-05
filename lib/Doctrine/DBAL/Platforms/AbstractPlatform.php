@@ -1281,7 +1281,7 @@ abstract class AbstractPlatform
         } else {
 
             $query = 'CREATE ' . $this->getCreateIndexSQLFlags($index) . 'INDEX ' . $name . ' ON ' . $table;
-            $query .= $index->getAccessMethod() !== null ? ' USING ' . $index->getAccessMethod() . ' ' : '';
+            $query .= ( $index->getAccessMethod() !== null ? ' USING ' . $index->getAccessMethod() . ' ' : '' );
             $query .= ' (' . $this->getIndexFieldDeclarationListSQL($columns) . ')';
         }
 
@@ -1777,9 +1777,8 @@ abstract class AbstractPlatform
         }
 
         return $type . 'INDEX ' . $name
-             . $index->getAccessMethod( ) !== null ? ' USING ' . $index->getAccessMethod( ) . ' ' : ''
-             . '(' . $this->getIndexFieldDeclarationListSQL($index->getColumns())
-             . ')';
+             . ( $index->getAccessMethod( ) !== null ? ' USING ' . $index->getAccessMethod( ) . ' ' : '' )
+             . '(' . $this->getIndexFieldDeclarationListSQL($index->getColumns()) . ')';
     }
 
     /**
