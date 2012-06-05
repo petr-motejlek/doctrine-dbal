@@ -1282,7 +1282,7 @@ abstract class AbstractPlatform
 
             $query = 'CREATE ' . $this->getCreateIndexSQLFlags($index) . 'INDEX ' . $name . ' ON ' . $table;
             $query .= ( $index->getAccessMethod() !== null ? ' USING ' . $index->getAccessMethod() . ' ' : '' );
-            $query .= '(' . $this->getIndexFieldDeclarationListSQL($columns) . ')';
+            $query .= ' (' . $this->getIndexFieldDeclarationListSQL($columns) . ')';
         }
 
         return $query;
@@ -1778,7 +1778,7 @@ abstract class AbstractPlatform
 
         return $type . 'INDEX ' . $name
              . ( $index->getAccessMethod( ) !== null ? ' USING ' . $index->getAccessMethod( ) . ' ' : '' )
-             . '(' . $this->getIndexFieldDeclarationListSQL($index->getColumns()) . ')';
+             . ' (' . $this->getIndexFieldDeclarationListSQL($index->getColumns()) . ')';
     }
 
     /**
